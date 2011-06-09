@@ -1,9 +1,9 @@
-module WhoopsRails
+module WhoopsRailsNotifier
   module ActionControllerCatcher
     # Sets up an alias chain to catch exceptions when Rails does
     def self.included(base) #:nodoc:
-      base.send(:alias_method, :rescue_action_in_public_without_whoops, :rescue_action_in_public)
-      base.send(:alias_method, :rescue_action_in_public, :rescue_action_in_public_with_whoops)
+      # base.send(:alias_method, :rescue_action_in_public_without_whoops, :rescue_action_in_public)
+      # base.send(:alias_method, :rescue_action_in_public, :rescue_action_in_public_with_whoops)
     end
 
     private

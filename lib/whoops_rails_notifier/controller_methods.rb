@@ -1,4 +1,4 @@
-module WhoopsNotifierRails
+module WhoopsRailsNotifier
   module ControllerMethods
     private
 
