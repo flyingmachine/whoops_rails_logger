@@ -1,0 +1,4 @@
+development:
+  host: whoops.com
+test:
+  host: whoops.com

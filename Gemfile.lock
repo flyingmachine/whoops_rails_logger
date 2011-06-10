@@ -122,7 +122,6 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 0.4.0)
   rails (~> 3)
-  rspec (= 2.1.0)
   rspec-rails
   ruby-debug
   whoops_notifier
