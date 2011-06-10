@@ -11,7 +11,7 @@ module WhoopsRailsNotifier
   end
   
   def self.configure
-    config = YAML.load(File.join(Rails.root, "config", "whoops.yml"))[Rails.env]
+    config = YAML.load_file(File.join(Rails.root, "config", "whoops.yml"))[Rails.env]
     WhoopsNotifier.config.set(config)
     WhoopsNotifier.config.logger = Rails.logger
   end
