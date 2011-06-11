@@ -3,6 +3,10 @@ require 'spec_helper'
 describe "Notification" do
   include Capybara
   
+  def exception_visit(path)
+    expect { visit path }.to raise_error
+  end
+  
   describe "exception notifications while a controller handles a request" do
     before(:all) do
       FakeWeb.register_uri(:post, "http://whoops.com/events/", :body => "success")
@@ -10,7 +14,7 @@ describe "Notification" do
     let(:last_request) { FakeWeb.last_request }
     
     it "sends a notification when an exception happens in a controller action" do
-      visit users_path
+      exception_visit(users_path)
       last_request.body.should include("exception in index")
     end
     

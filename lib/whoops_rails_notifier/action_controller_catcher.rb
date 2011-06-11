@@ -12,7 +12,7 @@ module WhoopsRailsNotifier
     # any custom processing that is defined with Rails 2's exception helpers.
     def rescue_action_in_public_with_whoops(exception)        
       evidence = {:exception => exception}.merge(whoops_request_data)
-       WhoopsNotifierRails.notify(evidence)
+       WhoopsRailsNotifier.notify(evidence)
       rescue_action_in_public_without_whoops(exception)
     end
   end

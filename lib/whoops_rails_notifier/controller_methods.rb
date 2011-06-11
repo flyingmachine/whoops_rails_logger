@@ -6,7 +6,7 @@ module WhoopsRailsNotifier
     # inside the controller. Otherwise it works like WhoopsNotifierRails.notify.
     def notify_whoops(exception)
       evidence = {:exception => exception}.merge(whoops_request_data)
-      WhoopsNotifierRails.notify(:rails, evidence)
+      WhoopsRailsNotifier.notify(:rails, evidence)
     end
 
     def whoops_request_data
