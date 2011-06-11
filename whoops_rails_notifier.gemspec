@@ -2,6 +2,7 @@
 # project in your rails apps through git.
 Gem::Specification.new do |s|
   s.name = "whoops_rails_notifier"
+  s.authors = ["Daniel Higginbotham"]
   s.summary = "A Whoops Notifier for Rails 3 apps."
   s.description = "A Whoops Notifier for Rails 3 apps."
   s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
