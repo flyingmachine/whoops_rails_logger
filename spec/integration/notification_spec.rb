@@ -18,9 +18,16 @@ describe "Notification" do
       last_request.body.should include("exception in index")
     end
     
-    it "sends a notification when an exception happens in a view"
+    it "sends a notification when an exception happens in a view" do
+      exception_visit(new_user_path)
+      last_request.body.should include("exception in view")
+    end
     
-    it "sends a notification when an exception happens in a model"
+    it "sends a notification when an exception happens in a model" do
+      user = User.create
+      exception_visit(user_path(user))
+      last_request.body.should include("exception in model")
+    end
   end
   
 end
