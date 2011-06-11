@@ -24,7 +24,7 @@ module WhoopsRailsNotifier
         rack_env  = evidence[:rack_env]
         
         details = {}
-        details[:backtrace] = exception.backtrace
+        details[:backtrace] = exception.backtrace.collect{|l| l.sub(/^#{ENV['GEM_HOME']}/, '%GEM_HOME').sub(/^#{Rails.root}/, '%Rails.root')}
         report.details      = details
       end
 
