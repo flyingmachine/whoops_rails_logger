@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
   s.version = "0.0.1"
   
-  s.add_dependency("whoops_notifier", "0.0.3")
+  s.add_dependency("whoops_notifier", "0.0.4")
   s.add_dependency('rails', '~>3')
 
   s.add_development_dependency('rake', '0.8.7')

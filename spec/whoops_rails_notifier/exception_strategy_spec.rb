@@ -16,8 +16,17 @@ describe WhoopsRailsNotifier::ExceptionStrategy do
       report_modifier_names.should include(:basic_details)
     end
     
-    it "has a details report modifier" do
-      report_modifier_names.should include(:details)
+    
+    describe "details"
+      it "exists" do
+        report_modifier_names.should include(:details)
+      end
+      
+      it "replaces the GEM_HOME path with '$GEM_HOME' in the backtrace" do
+        
+      end
+      
+      it "replaces the Rails.root path with '$Rails.root' in the backtrace}" do
     end
     
     it "has a 'create event group identifier' report modifier" do
