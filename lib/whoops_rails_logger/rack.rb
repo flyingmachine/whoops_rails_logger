@@ -1,4 +1,4 @@
-module WhoopsRailsNotifier
+module WhoopsRailsLogger
   # Middleware for Rack applications. Any errors raised by the upstream
   # application will be delivered to whoops and re-raised.
   class Rack
@@ -14,7 +14,7 @@ module WhoopsRailsNotifier
           :exception => raised,
           :rack_env  => env
         }
-        WhoopsNotifier.notify(:rails_exception, evidence)
+        WhoopsLogger.notify(:rails_exception, evidence)
         raise
       end
 

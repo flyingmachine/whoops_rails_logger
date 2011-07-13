@@ -1,4 +1,4 @@
-module WhoopsRailsNotifier
+module WhoopsRailsLogger
   class Evidence
     attr_accessor :exception
     attr_accessor :url

@@ -6,7 +6,7 @@ require "whoops_rails_notifier/exception_strategy"
 require "whoops_rails_notifier/rack"
 require "whoops_rails_notifier/railtie"
 
-module WhoopsRailsNotifier
+module WhoopsRailsLogger
   def self.initialize
     configure
     create_exception_strategy
@@ -14,11 +14,11 @@ module WhoopsRailsNotifier
   
   def self.configure
     config = YAML.load_file(File.join(Rails.root, "config", "whoops.yml"))[Rails.env]
-    WhoopsNotifier.config.set(config)
-    WhoopsNotifier.config.logger = Rails.logger
+    WhoopsLogger.config.set(config)
+    WhoopsLogger.config.logger = Rails.logger
   end
   
   def self.create_exception_strategy
-    strategy = WhoopsRailsNotifier::ExceptionStrategy.new(:rails_exception)
+    strategy = WhoopsRailsLogger::ExceptionStrategy.new(:rails_exception)
   end  
 end

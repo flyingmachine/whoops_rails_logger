@@ -1,5 +1,5 @@
-module WhoopsRailsNotifier
-  class ExceptionStrategy < WhoopsNotifier::Strategy
+module WhoopsRailsLogger
+  class ExceptionStrategy < WhoopsLogger::Strategy
     attr_accessor :service, :environment
     def initialize(strategy_name)
       super

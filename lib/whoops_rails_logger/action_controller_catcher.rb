@@ -1,4 +1,4 @@
-module WhoopsRailsNotifier
+module WhoopsRailsLogger
   module ActionControllerCatcher
     # Sets up an alias chain to catch exceptions when Rails does
     def self.included(base) #:nodoc:
@@ -12,7 +12,7 @@ module WhoopsRailsNotifier
     # any custom processing that is defined with Rails 2's exception helpers.
     def rescue_action_in_public_with_whoops(exception)        
       evidence = {:exception => exception}.merge(whoops_request_data)
-       WhoopsRailsNotifier.notify(evidence)
+       WhoopsRailsLogger.notify(evidence)
       rescue_action_in_public_without_whoops(exception)
     end
   end

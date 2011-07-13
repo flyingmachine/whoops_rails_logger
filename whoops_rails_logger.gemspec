@@ -3,12 +3,12 @@
 Gem::Specification.new do |s|
   s.name = "whoops_rails_notifier"
   s.authors = ["Daniel Higginbotham"]
-  s.summary = "A Whoops Notifier for Rails 3 apps."
-  s.description = "A Whoops Notifier for Rails 3 apps."
+  s.summary = "A Whoops Logger for Rails 3 apps."
+  s.description = "A Whoops Logger for Rails 3 apps."
   s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
   s.version = "0.0.2"
 
-  s.add_dependency("whoops_notifier", "0.0.4")
+  s.add_dependency("whoops_logger", "0.1.0")
   s.add_dependency('rails', '~>3')
 
   s.add_development_dependency('rake', '0.8.7')

@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe WhoopsRailsNotifier::ExceptionStrategy do
+describe WhoopsRailsLogger::ExceptionStrategy do
   it "uses the rails application name for service by default" do
-    WhoopsNotifier.strategies[:rails_exception].service.should == "dummy"
+    WhoopsLogger.strategies[:rails_exception].service.should == "dummy"
   end
   
   it "uses the rails environment for environment by default" do
-    WhoopsNotifier.strategies[:rails_exception].environment.should == "test"
+    WhoopsLogger.strategies[:rails_exception].environment.should == "test"
   end
   
   describe "report modifiers" do  
-    let(:report_modifier_names) { WhoopsNotifier.strategies[:rails_exception].report_modifiers.collect{|rm| rm.name} }
+    let(:report_modifier_names) { WhoopsLogger.strategies[:rails_exception].report_modifiers.collect{|rm| rm.name} }
     
     it "has a basic details report modifier" do
       report_modifier_names.should include(:basic_details)
