@@ -7,7 +7,7 @@ require "action_view/railtie"
 require "action_mailer/railtie"
 
 Bundler.require
-require "whoops_rails_notifier"
+require "whoops_rails_logger"
 
 module Dummy
   class Application < Rails::Application

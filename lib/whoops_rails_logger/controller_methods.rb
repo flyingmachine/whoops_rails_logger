@@ -5,8 +5,8 @@ module WhoopsRailsLogger
     # This method should be used for sending manual notifications while you are still
     # inside the controller. Otherwise it works like WhoopsLoggerRails.notify.
     def notify_whoops(exception)
-      evidence = {:exception => exception}.merge(whoops_request_data)
-      WhoopsRailsLogger.notify(:rails, evidence)
+      raw_data = {:exception => exception}.merge(whoops_request_data)
+      WhoopsRailsLogger.notify(:rails, raw_data)
     end
 
     def whoops_request_data

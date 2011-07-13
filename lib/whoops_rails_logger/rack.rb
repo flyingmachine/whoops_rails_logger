@@ -10,11 +10,11 @@ module WhoopsRailsLogger
       begin
         response = @app.call(env)
       rescue Exception => raised
-        evidence = {
+        raw_data = {
           :exception => raised,
           :rack_env  => env
         }
-        WhoopsLogger.notify(:rails_exception, evidence)
+        WhoopsLogger.notify(:rails_exception, raw_data)
         raise
       end
 

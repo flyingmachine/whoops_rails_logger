@@ -11,8 +11,8 @@ module WhoopsRailsLogger
     # Overrides the rescue_action method in ActionController::Base, but does not inhibit
     # any custom processing that is defined with Rails 2's exception helpers.
     def rescue_action_in_public_with_whoops(exception)        
-      evidence = {:exception => exception}.merge(whoops_request_data)
-       WhoopsRailsLogger.notify(evidence)
+      raw_data = {:exception => exception}.merge(whoops_request_data)
+       WhoopsRailsLogger.notify(raw_data)
       rescue_action_in_public_without_whoops(exception)
     end
   end

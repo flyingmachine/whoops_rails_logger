@@ -1,7 +1,7 @@
 # Provide a simple gemspec so you can easily use your enginex
 # project in your rails apps through git.
 Gem::Specification.new do |s|
-  s.name = "whoops_rails_notifier"
+  s.name = "whoops_rails_logger"
   s.authors = ["Daniel Higginbotham"]
   s.summary = "A Whoops Logger for Rails 3 apps."
   s.description = "A Whoops Logger for Rails 3 apps."

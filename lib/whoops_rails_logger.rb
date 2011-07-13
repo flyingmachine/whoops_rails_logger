@@ -1,10 +1,10 @@
 require "digest"
-require "whoops_notifier"
-require "whoops_rails_notifier/action_controller_catcher"
-require "whoops_rails_notifier/controller_methods"
-require "whoops_rails_notifier/exception_strategy"
-require "whoops_rails_notifier/rack"
-require "whoops_rails_notifier/railtie"
+require "whoops_logger"
+require "whoops_rails_logger/action_controller_catcher"
+require "whoops_rails_logger/controller_methods"
+require "whoops_rails_logger/exception_strategy"
+require "whoops_rails_logger/rack"
+require "whoops_rails_logger/railtie"
 
 module WhoopsRailsLogger
   def self.initialize
