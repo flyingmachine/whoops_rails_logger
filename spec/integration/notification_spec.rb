@@ -9,7 +9,7 @@ describe "Notification" do
   
   describe "exception notifications while a controller handles a request" do
     before(:all) do
-      FakeWeb.register_uri(:post, "http://whoops.com/events/", :body => "success")
+      FakeWeb.register_uri(:post, "http://localhost:3000/events/", :body => "success")
     end
     let(:last_request) { FakeWeb.last_request }
     
