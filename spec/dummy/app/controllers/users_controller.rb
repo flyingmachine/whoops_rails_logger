@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    session[:session_test] = "abra"
     raise "exception in index"
   end
   

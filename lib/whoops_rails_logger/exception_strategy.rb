@@ -27,8 +27,16 @@ module WhoopsRailsLogger
         details[:backtrace] = exception.backtrace.collect{ |line|
           line.sub(/^#{ENV['GEM_HOME']}/, '$GEM_HOME').sub(/^#{Rails.root}/, '$Rails.root')
         }
-        details[:params]    = rack_env["action_dispatch.request.parameters"]
-        message.details      = details
+
+        details[:http_host]      = rack_env["HTTP_HOST"]        
+        details[:params]         = rack_env["action_dispatch.request.parameters"]
+        details[:query_string]   = rack_env["QUERY_STRING"]
+        details[:remote_addr]    = rack_env["REMOTE_ADDR"]
+        details[:request_method] = rack_env["REQUEST_METHOD"]
+        details[:server_name]    = rack_env["SERVER_NAME"]
+        details[:session]        = rack_env["rack.session"]
+        details[:env]            = ENV
+        message.details          = details
       end
 
       self.add_message_builder(:create_event_group_identifier) do |message, raw_data|

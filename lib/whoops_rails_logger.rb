@@ -1,7 +1,5 @@
 require "digest"
 require "whoops_logger"
-require "whoops_rails_logger/action_controller_catcher"
-require "whoops_rails_logger/controller_methods"
 require "whoops_rails_logger/exception_strategy"
 require "whoops_rails_logger/rack"
 require "whoops_rails_logger/railtie"

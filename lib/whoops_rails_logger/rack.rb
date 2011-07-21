@@ -14,7 +14,7 @@ module WhoopsRailsLogger
           :exception => raised,
           :rack_env  => env
         }
-        WhoopsLogger.notify(:rails_exception, raw_data)
+        WhoopsLogger.log(:rails_exception, raw_data)
         raise
       end
 

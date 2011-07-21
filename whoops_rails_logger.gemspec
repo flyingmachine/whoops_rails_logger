@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.summary = "A Whoops Logger for Rails 3 apps."
   s.description = "A Whoops Logger for Rails 3 apps."
   s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
-  s.add_dependency("whoops_logger", "0.1.0")
+  s.add_dependency("whoops_logger", "0.1.2")
   s.add_dependency('rails', '~>3')
 
   s.add_development_dependency('rake', '0.8.7')
