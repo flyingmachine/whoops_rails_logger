@@ -35,7 +35,7 @@ module WhoopsRailsLogger
         details[:request_method] = rack_env["REQUEST_METHOD"]
         details[:server_name]    = rack_env["SERVER_NAME"]
         details[:session]        = rack_env["rack.session"]
-        details[:env]            = ENV
+        details[:env]            = ENV.to_hash
         message.details          = details
       end
 
