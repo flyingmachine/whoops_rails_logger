@@ -108,7 +108,7 @@ describe WhoopsRailsLogger::ExceptionStrategy do
       mc.message.details[:request_method].should == rack_env["REQUEST_METHOD"]
       mc.message.details[:server_name].should    == rack_env["SERVER_NAME"]
       mc.message.details[:session].should        == rack_env["rack.session"]
-      mc.message.details[:env].should            == ENV      
+      mc.message.details[:env].should            == ENV.to_hash
     end
   end
 end
