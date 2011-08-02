@@ -1,0 +1,41 @@
+= WhoopsRailsLogger
+
+This gem provides an exception strategy for Rails applications. By default, it catches all unhandled exceptions raised within a Rails controller.
+
+== Installation
+
+. Add +whoops_rails_logger+ to your +Gemfile+
+. Create +config/whoops_logger.yml+
+. Add the following options, as needed, per environment:
+
+====
+:host
+:http_open_timeout
+:http_read_timeout
+:port
+:protocol
+:proxy_host
+:proxy_pass
+:proxy_port
+:proxy_user
+:secure
+====
+
+Example:
+
+====
+development:
+  host: localhost
+  port: 3000
+production:
+  host: somehost.com
+====
+
+== Usage
+
+By default, it catches all unhandled exceptions raised within a Rails controller. 
+
+
+== TODO
+
+* Provide a mechanism for logging an exception at any point
