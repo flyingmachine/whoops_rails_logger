@@ -30,4 +30,14 @@ describe "Notification" do
     end
   end
   
+  describe "with no host set" do
+    it "sends nothing when no host is set" do
+      WhoopsLogger.should_receive(:log).never
+      old_host = WhoopsLogger.config.host
+      WhoopsLogger.config.host = nil
+      user = User.create
+      exception_visit(user_path(user))
+    end
+  end
+  
 end
