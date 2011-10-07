@@ -31,7 +31,7 @@ module WhoopsRailsLogger
         details[:http_host]      = rack_env["HTTP_HOST"]        
         details[:params]         = rack_env["action_dispatch.request.parameters"]
         details[:controller]     = details[:params][:controller]
-        details[:action]     = details[:params][:action]
+        details[:action]         = details[:params][:action]
         details[:query_string]   = rack_env["QUERY_STRING"]
         details[:remote_addr]    = rack_env["REMOTE_ADDR"]
         details[:request_method] = rack_env["REQUEST_METHOD"]
@@ -42,7 +42,7 @@ module WhoopsRailsLogger
       end
 
       self.add_message_builder(:create_event_group_identifier) do |message, raw_data|
-        identifier = "#{details[:controller]}##{details[:action]}"
+        identifier = "#{message.details[:controller]}##{message.details[:action]}"
         identifier << raw_data[:exception].backtrace.collect{|b| b.gsub(/:in.*/, "")}.join("\n")
         message.event_group_identifier = Digest::MD5.hexdigest(identifier)
       end
