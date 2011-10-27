@@ -30,8 +30,8 @@ module WhoopsRailsLogger
 
         details[:http_host]      = rack_env["HTTP_HOST"]        
         details[:params]         = rack_env["action_dispatch.request.parameters"]
-        details[:controller]     = details[:params][:controller]
-        details[:action]         = details[:params][:action]
+        details[:controller]     = details[:params][:controller] if details[:params]
+        details[:action]         = details[:params][:action]     if details[:params]
         details[:query_string]   = rack_env["QUERY_STRING"]
         details[:remote_addr]    = rack_env["REMOTE_ADDR"]
         details[:request_method] = rack_env["REQUEST_METHOD"]
