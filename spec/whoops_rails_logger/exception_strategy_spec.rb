@@ -110,5 +110,21 @@ describe WhoopsRailsLogger::ExceptionStrategy do
       mc.message.details[:session].should        == rack_env["rack.session"]
       mc.message.details[:env].should            == ENV.to_hash
     end
+    
+    it "creates the same event group identifier when backtraces have the same sequence of file/line numbers, ignoring method name" do
+      exception.stub!(:backtrace).and_return([
+        "$GEM_HOME/gems/activesupport-3.1.1/lib/active_support/callbacks.rb:386:in `_run123_process_action_callbacks'"
+      ])
+      mc1 = WhoopsLogger::MessageCreator.new(rails_exception_strategy, raw_data)
+      mc1.create!
+      
+      exception.stub!(:backtrace).and_return([
+        "$GEM_HOME/gems/activesupport-3.1.1/lib/active_support/callbacks.rb:386:in `_run456_process_action_callbacks'"
+      ])
+      mc2 = WhoopsLogger::MessageCreator.new(rails_exception_strategy, raw_data)
+      mc2.create!
+      
+      mc1.message.event_group_identifier.should == mc2.message.event_group_identifier
+    end
   end
 end
