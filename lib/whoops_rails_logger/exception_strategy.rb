@@ -43,7 +43,7 @@ module WhoopsRailsLogger
 
       self.add_message_builder(:create_event_group_identifier) do |message, raw_data|
         identifier = "#{message.details[:controller]}##{message.details[:action]}"
-        identifier << raw_data[:exception].backtrace.collect{|b| b.gsub(/:in.*/, "")}.join("\n")
+        identifier << message.details["backtrace"].collect{|b| b.gsub(/:in.*/, "")}.join("\n")
         message.event_group_identifier = Digest::SHA1.hexdigest(identifier)
       end
     end
