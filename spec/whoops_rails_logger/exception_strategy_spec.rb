@@ -5,36 +5,36 @@ describe WhoopsRailsLogger::ExceptionStrategy do
   it "uses the rails application name for service by default" do
     rails_exception_strategy.service.should == "dummy.web"
   end
-  
+
   it "uses the rails environment for environment by default" do
     rails_exception_strategy.environment.should == "test"
   end
-  
-  describe "message modifiers" do  
+
+  describe "message modifiers" do
     let(:message_modifier_names) { rails_exception_strategy.message_builders.collect{|rm| rm.name} }
-    
+
     it "has a basic details message modifier" do
       message_modifier_names.should include(:basic_details)
     end
-    
-    
+
+
     describe "details"
       it "exists" do
         message_modifier_names.should include(:details)
       end
-      
+
       it "replaces the GEM_HOME path with '$GEM_HOME' in the backtrace" do
-        
+
       end
-      
+
       it "replaces the Rails.root path with '$Rails.root' in the backtrace}" do
     end
-    
+
     it "has a 'create event group identifier' message modifier" do
       message_modifier_names.should include(:create_event_group_identifier)
     end
   end
-  
+
   describe "calling" do
     let(:rack_env) do
       {
@@ -82,7 +82,7 @@ describe WhoopsRailsLogger::ExceptionStrategy do
         "QUERY_STRING"                                    => ""
       }
     end
-    
+
     let(:exception) do
       begin
         raise StandardError.new("What an exception!")
@@ -90,40 +90,41 @@ describe WhoopsRailsLogger::ExceptionStrategy do
         e
       end
     end
-    
+
     let(:raw_data) do
       {
         :exception => exception,
         :rack_env  => rack_env
       }
     end
-    
+
     it "populates details correctly" do
       mc = WhoopsLogger::MessageCreator.new(rails_exception_strategy, raw_data)
       mc.create!
-      mc.message.details[:http_host].should      == rack_env["HTTP_HOST"]        
+      mc.message.details[:http_host].should      == rack_env["HTTP_HOST"]
       mc.message.details[:params].should         == rack_env["action_dispatch.request.parameters"]
       mc.message.details[:query_string].should   == rack_env["QUERY_STRING"]
       mc.message.details[:remote_addr].should    == rack_env["REMOTE_ADDR"]
       mc.message.details[:request_method].should == rack_env["REQUEST_METHOD"]
       mc.message.details[:server_name].should    == rack_env["SERVER_NAME"]
       mc.message.details[:session].should        == rack_env["rack.session"]
+      mc.message.details[:url].should            == "http://www.example.com/users"
       mc.message.details[:env].should            == ENV.to_hash
     end
-    
+
     it "creates the same event group identifier when backtraces have the same sequence of file/line numbers, ignoring method name" do
       exception.stub!(:backtrace).and_return([
         "$GEM_HOME/gems/activesupport-3.1.1/lib/active_support/callbacks.rb:386:in `_run123_process_action_callbacks'"
       ])
       mc1 = WhoopsLogger::MessageCreator.new(rails_exception_strategy, raw_data)
       mc1.create!
-      
+
       exception.stub!(:backtrace).and_return([
         "$GEM_HOME/gems/activesupport-3.1.1/lib/active_support/callbacks.rb:386:in `_run456_process_action_callbacks'"
       ])
       mc2 = WhoopsLogger::MessageCreator.new(rails_exception_strategy, raw_data)
       mc2.create!
-      
+
       mc1.message.event_group_identifier.should == mc2.message.event_group_identifier
     end
   end
