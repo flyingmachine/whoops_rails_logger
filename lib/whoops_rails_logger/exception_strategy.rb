@@ -30,6 +30,7 @@ module WhoopsRailsLogger
 
         details[:http_host]      = rack_env["HTTP_HOST"]        
         details[:params]         = rack_env["action_dispatch.request.parameters"]
+        details[:raw_post_data]  = rack_env["RAW_POST_DATA"]  
         details[:controller]     = details[:params][:controller] if details[:params]
         details[:action]         = details[:params][:action]     if details[:params]
         details[:query_string]   = rack_env["QUERY_STRING"]
