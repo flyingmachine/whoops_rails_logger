@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency('rake', '0.8.7')
   s.add_development_dependency('rspec-rails')
-  s.add_development_dependency('ruby-debug')
   s.add_development_dependency('fakeweb')
   s.add_development_dependency('sqlite3')
   s.add_development_dependency("capybara", ">=0.4.0")
