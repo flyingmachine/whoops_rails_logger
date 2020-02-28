@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    whoops_rails_logger (0.1.17)
+    whoops_rails_logger (0.1.18)
       rails (> 3)
       whoops_logger (= 0.1.4)
 
@@ -56,7 +56,7 @@ GEM
     fakeweb (1.3.0)
     ffi (1.0.9)
     i18n (0.5.0)
-    json (1.8.1)
+    json (2.3.0)
     json_pure (1.5.1)
     mail (2.2.20)
       activesupport (>= 2.3.6)
@@ -84,7 +84,7 @@ GEM
       activesupport (= 3.0.8)
       rake (>= 0.8.7)
       thor (~> 0.14.4)
-    rake (0.8.7)
+    rake (12.3.3)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -121,7 +121,7 @@ PLATFORMS
 DEPENDENCIES
   capybara (>= 0.4.0)
   fakeweb
-  rake (= 0.8.7)
+  rake (= 12.3.3)
   rspec-rails
   sqlite3
   whoops_rails_logger!

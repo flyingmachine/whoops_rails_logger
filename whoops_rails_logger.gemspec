@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.add_dependency("whoops_logger", "0.1.4")
   s.add_dependency('rails', '>3')
 
-  s.add_development_dependency('rake', '0.8.7')
+  s.add_development_dependency('rake', '12.3.3')
   s.add_development_dependency('rspec-rails')
   s.add_development_dependency('fakeweb')
   s.add_development_dependency('sqlite3')
