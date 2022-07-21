@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    whoops_rails_logger (0.1.17)
+    whoops_rails_logger (0.1.18)
       rails (> 3)
       whoops_logger (= 0.1.4)
 
@@ -56,7 +56,7 @@ GEM
     fakeweb (1.3.0)
     ffi (1.0.9)
     i18n (0.5.0)
-    json (1.8.1)
+    json (2.6.2)
     json_pure (1.5.1)
     mail (2.2.20)
       activesupport (>= 2.3.6)
@@ -109,7 +109,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.27)
+    tzinfo (0.3.61)
     whoops_logger (0.1.4)
       json
     xpath (0.1.4)
